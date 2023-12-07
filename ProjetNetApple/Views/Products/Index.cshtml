@@ -1,0 +1,24 @@
+﻿@model List<ProjetNetApple.Models.Product>
+
+<h2>Products</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="@product.Image" class="card-img-top" alt="Product Image">
+                <div class="card-body">
+                    <h5 class="card-title">@product.Name</h5>
+                    <p class="card-text">Price: $@product.Price</p>
+                    <p class="card-text">@product.Description</p>
+                    <a href="@Url.Action("Details", new { id = product.Id })" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
